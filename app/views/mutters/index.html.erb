@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+    <h1>不満一覧</h1>
+      <%= link_to "不満を吐き出す", new_mutter_path, class: 'btn btn-default' %>
+    <% @mutters.each do |mutter| %>
+    <div class="row">
+      <p><%= mutter.content %></p>
+      <%= link_to "編集", edit_mutter_path(mutter.id), class: 'btn btn-default btn-sm btn-success' %>
+      <%= link_to "削除", mutter_path(mutter.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+    </div>
+    <% end %>
+  </div>
+</div>
